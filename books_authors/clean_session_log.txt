@@ -1,0 +1,72 @@
+# Import our models into the sehll
+from books_authors_app.models import Book
+from books_authors_app.models import Author
+
+# Create 5 new books
+book1 = Book.objects.create(title='C Sharp',desc="Programming language 1")
+book2 = Book.objects.create(title='Jave',desc="Programming language 2")
+book3 = Book.objects.create(title='Python',desc="Programming language 3")
+book4 = Book.objects.create(title='PHP',desc="Programming language 4")
+book5 = Book.objects.create(title='Ruby',desc="Programming language 5")
+
+author1 = Author.objects.create(first_name='Jane',last_name='Austen')
+author2 = Author.objects.create(first_name='Emily',last_name='Dickinson')
+author3 = Author.objects.create(first_name='Fyodor',last_name='Dostoevsky')
+author4 = Author.objects.create(first_name='William',last_name='Shakespeare')
+author5 = Author.objects.create(first_name='Lau',last_name='Tzu')
+
+# Changes title of C Sharp to C#
+book_to_change = Book.objects.get(id=6)
+book_to_change.title = "C#"
+book_to_change.save()
+
+# Changes name of 4th author to Bill
+author_to_change = Author.objects.get(id=4)
+author_to_change.first_name = "Bill"
+author_to_change.save()
+
+# Assign the first author to the first 2 books
+this_author = Author.objects.first()
+this_book1 = Book.objects.get(id=2)
+this_book2 = Book.objects.get(id=3)
+this_author.books.add(this_book1)
+this_author.books.add(this_book2)
+
+# Assign the second author to the first 3 books # temp variables for the rest of the books
+this_author = Author.objects.get(id=2)
+this_book3 = Book.objects.get(id=4)
+this_book4 = Book.objects.get(id=5)
+this_book5 = Book.objects.get(id=6)
+this_author.books.add(this_book1)
+this_author.books.add(this_book2)
+this_author.books.add(this_book3)
+
+# Assign the 3rd author the first 4 books
+this_author = Author.objects.get(id=3)
+this_author.books.add(this_book1)
+this_author.books.add(this_book2)
+this_author.books.add(this_book3)
+this_author.books.add(this_book4)
+
+# Assign the 4th author the first 5 books
+this_author = Author.objects.get(id=4)
+this_author.books.add(this_book1)
+this_author.books.add(this_book2)
+this_author.books.add(this_book3)
+this_author.books.add(this_book4)
+this_author.books.add(this_book5)
+
+# Retrieve all the authors for the 3rd book
+this_book3.authors.all()
+
+# Remove the first author of the 3rd book
+this_book3.authors.first().delete()
+
+# Add the 5th author as one of the authors of the 2nd book
+this_book2.authors.add(Author.objects.last())
+
+# Find all the books that the 3rd author is part of
+Author.objects.get(id=3).books.all()
+
+# Find all the authors that contributed to the 5th book
+this_book5.authors.all()
