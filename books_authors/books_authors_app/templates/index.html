@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Book/Authors Django</title>
+    {% comment %}
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    {% endcomment %}
+</head>
+
+    <body>
+        <div class="container-flush m-3">
+            <div class="row align-items-center">
+                <h1 class="col text-center text-primary">
+                    Placeholder title
+                </h1>
+            </div>
+            {% comment %} Display some data {% endcomment %}
+
+        </div>
+
+        {% comment %} Add new users to our database through POST request. {% endcomment %}
+        <div class="row align-items-center">
+            <h1 class="col text-center text-dark">
+                Placeholder title
+            </h1>
+        </div>
+        {% comment %} Form to create a new entry in our database. {% endcomment %}
+        <form action="add" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-lg btn-primary px-5 py-1 my-2 ml-2">Add</button>
+        </form>
+
+    </body>
+</html>
