@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Book Details</title>
+    {% comment %}
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    {% endcomment %}
+</head>
+<body>
+    <div class="container-flush m-2">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <h1 class="text-dark mb-4">
+                    Book Details
+                </h1>      
+                <h2>
+
+                </h2>
+            </div>
+            <div class="col-6 mr-5">   
+                {% comment %} Display some data {% endcomment %}
+                {% comment %} All users listed on a table here. 
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in books %}
+                        <tr>
+                            <th>{{ book.id }}</th>
+                            <th>{{ book.title }}</th>
+                            <th><a href="/books/{{ book.id }}">View</a></th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>{% endcomment %}
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    
+    {% comment %} Add new users to our database through POST request. 
+    <div class="row align-items-center m-0">
+        <h1 class="col text-dark">
+            Placeholder title
+        </h1>
+    </div>{% endcomment %}
+    {% comment %} Form to create a new entry in our database. 
+    <form action="add" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-lg btn-primary px-5 py-1 my-2 ml-2">Add</button>
+    </form>{% endcomment %}
+
+</body>
+</html>
