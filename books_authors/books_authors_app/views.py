@@ -8,6 +8,16 @@ def books(request):
     }
     return render(request, 'books.html', context)
 
+def authors(request):
+    return render(request, 'authors.html', {"authors": Author.objects.all()})
+
+def create_book(request):
+    Book.objects.create(
+        title = request.POST['title'],
+        desc = request.POST['desc']
+    )
+    return redirect('/')
+
 def view_book(request, book_id):
     context = {
         'book': Book.objects.get(id=book_id),

@@ -18,7 +18,7 @@
                     <h1 class="text-dark mb-4">
                         Add a Book
                     </h1>      
-                    <form action="add" method="POST">
+                    <form action="create_book" method="POST">
                         {% csrf_token %}
                         <div class="form-group-row">
                             <label for="title" class="col-form-label-lg pr-5">Title</label>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group-row">
                             <label for="description" class="col-form-label-lg">Description</label>
-                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                            <textarea class="form-control" name="desc" id="description" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-sm btn-primary px-5 py-1 my-2 ml-2">Add</button>
                     </form>
@@ -61,25 +61,5 @@
 
             </div>
         </div>
-
-
-
-
-
-
-
-        
-        {% comment %} Add new users to our database through POST request. 
-        <div class="row align-items-center m-0">
-            <h1 class="col text-dark">
-                Placeholder title
-            </h1>
-        </div>{% endcomment %}
-        {% comment %} Form to create a new entry in our database. 
-        <form action="add" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-lg btn-primary px-5 py-1 my-2 ml-2">Add</button>
-        </form>{% endcomment %}
-
     </body>
 </html>
