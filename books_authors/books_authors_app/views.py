@@ -10,7 +10,7 @@ def books(request):
 
 def view_book(request, book_id):
     context = {
-        'books': Book.objects.all(),
-        'authors':Author.objects.all()
+        'book': Book.objects.get(id=book_id),
+        'authors': Book.objects.get(id=book_id).authors.all()
     }
     return render(request, 'book.html', context)

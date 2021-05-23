@@ -18,32 +18,22 @@
                     Book Details
                 </h1>      
                 <h2>
-
+                    {{ book.title}}
                 </h2>
-            </div>
-            <div class="col-6 mr-5">   
-                {% comment %} Display some data {% endcomment %}
-                {% comment %} All users listed on a table here. 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for book in books %}
-                        <tr>
-                            <th>{{ book.id }}</th>
-                            <th>{{ book.title }}</th>
-                            <th><a href="/books/{{ book.id }}">View</a></th>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>{% endcomment %}
-            </div>
+                <p>
+                    ID: {{ book.id }}
+                </p>
+                <p>
+                    Description: {{ book.desc }}
+                </p>
 
+                <p class="mt-3">Authors</p>
+                <ul>
+                    {% for author in authors %}
+                    <li>{{ author.first_name }} {{ author.last_name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 
