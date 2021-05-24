@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Book/Authors Django</title>
-    {% comment %}
-    {% load static %} 
-    <link rel="stylesheet" href="{% static 'style.css'%}">
-    {% endcomment %}
 </head>
-
     <body>
         <div class="container-flush m-2">
             <div class="row justify-content-between">
@@ -34,14 +29,11 @@
                         </div>
                         <button type="submit" class="btn btn-sm btn-primary px-5 py-1 my-2 ml-2">Add</button>
                     </form>
-                    {% comment %} Display some data {% endcomment %}
                 </div>
-
                 <div class="col-6 mr-5">
                     <h1 class="text-dark mb-4">
                         List of all Authors
                     </h1>      
-                    {% comment %} Display some data {% endcomment %}
                     {% comment %} All users listed on a table here. {% endcomment %}
                     <table class="table">
                         <thead>
@@ -62,7 +54,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </body>
