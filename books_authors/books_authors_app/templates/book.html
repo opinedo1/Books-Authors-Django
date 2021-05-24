@@ -33,28 +33,21 @@
                     <li>{{ author.first_name }} {{ author.last_name }}</li>
                     {% endfor %}
                 </ul>
+                <form action="{{book.id}}/addauthor" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group-row">
+                        <label for="author_id">Add Author</label>
+                        <select name="author_id" class="form-control-sm" id="author_id" required>
+                            <option value="" disabled selected>- select an author -</option>
+                            {% for author in all_authors %}
+                            <option value="{{ author.id  }}">{{ author.first_name }} {{ author.last_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary px-5 py-1 my-2 ml-2">Add</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-    
-    {% comment %} Add new users to our database through POST request. 
-    <div class="row align-items-center m-0">
-        <h1 class="col text-dark">
-            Placeholder title
-        </h1>
-    </div>{% endcomment %}
-    {% comment %} Form to create a new entry in our database. 
-    <form action="add" method="POST">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-lg btn-primary px-5 py-1 my-2 ml-2">Add</button>
-    </form>{% endcomment %}
-
 </body>
 </html>
